@@ -119,7 +119,7 @@
                  
                  /*UIAlertView *Alert = [[UIAlertView alloc] initWithTitle:serviceMsg message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                  [Alert show];*/
-                 [webView stringByEvaluatingJavaScriptFromString: [NSString stringWithFormat:@"shareDone(%@)", serviceMsg]];
+                 [webView stringByEvaluatingJavaScriptFromString:@"shareDone(\"js func func\");"];
              }];
         }
     }
