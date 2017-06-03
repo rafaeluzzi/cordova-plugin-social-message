@@ -117,8 +117,9 @@
                     if ( [act isEqualToString:UIActivityTypePostToFacebook] ) serviceMsg = @"Post was successful";
                 }
                  
-                 UIAlertView *Alert = [[UIAlertView alloc] initWithTitle:serviceMsg message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                 [Alert show];
+                 /*UIAlertView *Alert = [[UIAlertView alloc] initWithTitle:serviceMsg message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                 [Alert show];*/
+                 [webView stringByEvaluatingJavaScriptFromString: [NSString stringWithFormat:@"shareDone(%@)", serviceMsg]];
              }];
         }
     }
