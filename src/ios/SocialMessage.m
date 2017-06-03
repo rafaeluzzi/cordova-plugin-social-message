@@ -107,20 +107,21 @@
         if (doAlert) {
             [activity setCompletionHandler:^(NSString *act, BOOL done)
              {
-                NSString *serviceMsg = @"Share was cancelled";
+                //NSString *serviceMsg = @"Share was cancelled";
                  
                 if(done)
                 {
-                    serviceMsg = @"Share completed successfully.";
+                    /*serviceMsg = @"Share completed successfully.";
                     if ( [act isEqualToString:UIActivityTypeMail] )           serviceMsg = @"Mail sent successfully";
                     if ( [act isEqualToString:UIActivityTypePostToTwitter] )  serviceMsg = @"Post was successful";
-                    if ( [act isEqualToString:UIActivityTypePostToFacebook] ) serviceMsg = @"Post was successful";
+                    if ( [act isEqualToString:UIActivityTypePostToFacebook] ) serviceMsg = @"Post was successful";*/
+                    [self.webView stringByEvaluatingJavaScriptFromString:@"shareDone(\"true\");"];
+                }else{
+                    [self.webView stringByEvaluatingJavaScriptFromString:@"shareDone(\"false\");"];
                 }
                  
                  /*UIAlertView *Alert = [[UIAlertView alloc] initWithTitle:serviceMsg message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                 [Alert show];*/
-                 /*[self.webView stringByEvaluatingJavaScriptFromString:@"shareDone(\"js func func\");"]; this worked*/
-                 [self.webView stringByEvaluatingJavaScriptFromString: [NSString stringWithFormat:@"shareDone(%@)", serviceMsg]];
+                 [Alert show];*/      
              }];
         }
     }
